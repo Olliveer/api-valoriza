@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import 'reflect-metadata';
+import 'express-async-errors';
 import express, { NextFunction, Request, Response } from 'express';
 
 import './database';
@@ -18,7 +19,7 @@ app.use((error: Error, req: Request, res: Response, _next: NextFunction) => {
       message: error.message,
     });
   }
-
+  console.log(error);
   return res.status(500).json({
     status: 'error',
     message: 'Internal server error',
