@@ -5,6 +5,9 @@
   "username": "postgres",
   "password": "secret",
   "database": "api_nlw06",
+  "entities": [
+    "src/entities/*.ts"
+  ],
   "migrations": [
     "src/database/migrations/*.ts"
   ],
