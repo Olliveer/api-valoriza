@@ -6,11 +6,14 @@ import { UsersRepository } from '../repositories/UsersRepository';
 type IUserRequest = {
   name: string;
   email: string;
+  password: string;
   admin: boolean;
 }
 
 class CreateUserService {
-  async execute({ name, email, admin }: IUserRequest): Promise<User> {
+  async execute({
+    name, email, password, admin,
+  }: IUserRequest): Promise<User> {
     const usersRepository = getCustomRepository(UsersRepository);
 
     const userExists = await usersRepository.findOne({ email });
@@ -22,6 +25,7 @@ class CreateUserService {
     const user = usersRepository.create({
       name,
       email,
+      password,
       admin,
     });
 
