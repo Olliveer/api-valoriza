@@ -25,7 +25,7 @@ class AuthenticationService {
       throw new AppError('Email or password incorrect');
     }
 
-    const token = jwt.sign({ email: user.email }, 'uiohdaisuhdisa', {
+    const token = jwt.sign({ email: user.email }, process.env.JWT_SECRET, {
       subject: user.id,
       expiresIn: '1d',
     });

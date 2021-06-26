@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import 'reflect-metadata';
 import 'express-async-errors';
+import 'dotenv/config';
 import express, { NextFunction, Request, Response } from 'express';
 
 import './database';
