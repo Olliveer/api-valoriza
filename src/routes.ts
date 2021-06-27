@@ -12,7 +12,10 @@ const complimentController = new ComplimentsController();
 
 router.post('/users', usersController.create);
 router.post('/tags', isAuth, isAdmin, tagsController.create);
+router.get('/tags', tagsController.index);
 router.post('/login', usersController.authenticate);
-router.post('/compliment', complimentController.create);
+router.post('/compliment', isAuth, complimentController.create);
+router.get('/compliments/send', isAuth, complimentController.listComplimentsByUser);
+router.get('/compliments/receive', isAuth, complimentController.listReceiveComplimentsByUser);
 
 export { router };
